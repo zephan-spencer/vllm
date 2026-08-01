@@ -127,6 +127,34 @@ Use [Google-style docstrings](https://google.github.io/styleguide/pyguide.html#3
 - Minimize use of comments. Eliminate comments which are redundant, preferring legible and self-documenting code. When used, keep docstrings and comments brief and direct.
 - Assume the reader is familiar with vLLM.
 
+### Writing style
+
+- Lead with the outcome. State requirements, conclusions, ownership, conditions,
+  and observable behavior directly.
+- Keep prose high-signal. Include facts, decisions, constraints, interfaces,
+  measurements, and required actions. Remove background narration, redundant
+  explanation, generic framing, and process recaps.
+- Avoid contrastive negation. Replace "not X, but Y" with a direct statement of
+  Y.
+- Avoid hedging. Remove `may`, `might`, `could`, `should`, `probably`, and
+  `likely`. State verified facts. For an open question, state the uncertainty,
+  its source, and the required decision.
+- Avoid narration. Replace accounts of agent activity with the resulting fact,
+  change, evidence, or next action.
+
+#### Style Parse
+
+Trigger a Style Parse before every user-facing response, document edit, design
+specification, and context-resume response.
+
+1. Put the result or decision first.
+2. Delete narration, generic framing, and repeated context.
+3. Search for contrastive forms and hedge words.
+4. Replace uncertainty with its source and an explicit decision or verification
+   step.
+5. Retain only information that changes a decision, action, interface, or
+   expected behavior.
+
 ### Commit messages
 
 Add attribution using commit trailers such as `Co-authored-by:` (other projects use `Assisted-by:` or `Generated-by:`):
@@ -151,7 +179,3 @@ Security reviewers should start with [`SECURITY.md`](SECURITY.md),
 [`docs/contributing/vulnerability_management.md`](docs/contributing/vulnerability_management.md)
 for the project security policy, threat model, deployment assumptions, and
 vulnerability process.
-
-- **Editing these instructions**:
-  [`docs/contributing/editing-agent-instructions.md`](docs/contributing/editing-agent-instructions.md)
-  — Rules for modifying AGENTS.md or any domain-specific guide it references.
